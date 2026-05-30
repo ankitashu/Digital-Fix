@@ -7,11 +7,11 @@ const searchBox = document.getElementById("searchBox");
 
 searchBtn.addEventListener("click", () => {
 
-    if(searchBox.style.display === "block"){
+    if (searchBox.style.display === "block") {
 
         searchBox.style.display = "none";
 
-    }else{
+    } else {
 
         searchBox.style.display = "block";
 
@@ -33,7 +33,7 @@ window.addEventListener("scroll", () => {
 
     const sectionTop = counterSection.offsetTop - 300;
 
-    if(window.scrollY > sectionTop && !started){
+    if (window.scrollY > sectionTop && !started) {
 
         counters.forEach(counter => {
 
@@ -45,7 +45,7 @@ window.addEventListener("scroll", () => {
 
             let updateCounter = () => {
 
-                if(count < target){
+                if (count < target) {
 
                     count += increment;
 
@@ -53,7 +53,7 @@ window.addEventListener("scroll", () => {
 
                     setTimeout(updateCounter, 20);
 
-                }else{
+                } else {
 
                     counter.innerText = target;
 
@@ -79,13 +79,13 @@ const topBtn = document.getElementById("topBtn");
 
 window.onscroll = function () {
 
-    if(document.body.scrollTop > 300 ||
-       document.documentElement.scrollTop > 300){
+    if (document.body.scrollTop > 300 ||
+        document.documentElement.scrollTop > 300) {
 
         topBtn.style.display = "block";
 
     }
-    else{
+    else {
 
         topBtn.style.display = "none";
 
@@ -95,18 +95,18 @@ window.onscroll = function () {
 
 // Scroll To Top
 
-if(topBtn){
+if (topBtn) {
 
-topBtn.addEventListener("click", function(){
+    topBtn.addEventListener("click", function () {
 
-    window.scrollTo({
+        window.scrollTo({
 
-        top: 0,
-        behavior: "smooth"
+            top: 0,
+            behavior: "smooth"
+
+        });
 
     });
-
-});
 }
 
 
@@ -115,97 +115,97 @@ topBtn.addEventListener("click", function(){
 
 const form = document.getElementById("appointmentForm");
 
-if(form){
+if (form) {
 
-form.addEventListener("submit", function(e){
+    form.addEventListener("submit", function (e) {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const name =
-    form.querySelector('[name="name"]').value.trim();
+        const name =
+            form.querySelector('[name="name"]').value.trim();
 
-    const email =
-    form.querySelector('[name="email"]').value.trim();
+        const email =
+            form.querySelector('[name="email"]').value.trim();
 
-    const phone =
-    form.querySelector('[name="phone"]').value.trim();
+        const phone =
+            form.querySelector('[name="phone"]').value.trim();
 
-    const date =
-    form.querySelector('input[type="date"]').value;
+        const date =
+            form.querySelector('input[type="date"]').value;
 
-    const time =
-    form.querySelector('input[type="time"]').value;
+        const time =
+            form.querySelector('input[type="time"]').value;
 
-    const service =
-    form.querySelector('.form-select').value;
+        const service =
+            form.querySelector('.form-select').value;
 
-    const emailPattern =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const phonePattern =
-    /^[0-9]{10}$/;
+        const phonePattern =
+            /^[0-9]{10}$/;
 
-    /* Name Validation */
+        /* Name Validation */
 
-    if(name.length < 3){
+        if (name.length < 3) {
 
-        alert("Please enter a valid name.");
-        return;
+            alert("Please enter a valid name.");
+            return;
 
-    }
+        }
 
-    /* Email Validation */
+        /* Email Validation */
 
-    if(!emailPattern.test(email)){
+        if (!emailPattern.test(email)) {
 
-        alert("Please enter a valid email address.");
-        return;
+            alert("Please enter a valid email address.");
+            return;
 
-    }
+        }
 
-    /* Mobile Validation */
+        /* Mobile Validation */
 
-    if(!phonePattern.test(phone)){
+        if (!phonePattern.test(phone)) {
 
-        alert("Please enter a valid 10 digit mobile number.");
-        return;
+            alert("Please enter a valid 10 digit mobile number.");
+            return;
 
-    }
+        }
 
-    /* Date Validation */
+        /* Date Validation */
 
-    if(date === ""){
+        if (date === "") {
 
-        alert("Please select appointment date.");
-        return;
+            alert("Please select appointment date.");
+            return;
 
-    }
+        }
 
-    /* Time Validation */
+        /* Time Validation */
 
-    if(time === ""){
+        if (time === "") {
 
-        alert("Please select appointment time.");
-        return;
+            alert("Please select appointment time.");
+            return;
 
-    }
+        }
 
-    /* Service Validation */
+        /* Service Validation */
 
-    if(service === "Select Service"){
+        if (service === "Select Service") {
 
-        alert("Please select a service.");
-        return;
+            alert("Please select a service.");
+            return;
 
-    }
+        }
 
-    /* Success Message */
+        /* Success Message */
 
-    alert("Appointment Booked Successfully!");
+        alert("Appointment Booked Successfully!");
 
-    form.reset();
+        form.reset();
 
-});
+    });
 
 }
 
@@ -214,27 +214,27 @@ form.addEventListener("submit", function(e){
 =========================== */
 
 const subscribeBtn =
-document.getElementById("subscribeBtn");
+    document.getElementById("subscribeBtn");
 
 const newsletterEmail =
-document.getElementById("newsletterEmail");
+    document.getElementById("newsletterEmail");
 
-subscribeBtn.addEventListener("click", function(){
+subscribeBtn.addEventListener("click", function () {
 
     const email =
-    newsletterEmail.value.trim();
+        newsletterEmail.value.trim();
 
     const emailPattern =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if(email === ""){
+    if (email === "") {
 
         alert("Please enter your email address.");
         return;
 
     }
 
-    if(!emailPattern.test(email)){
+    if (!emailPattern.test(email)) {
 
         alert("Please enter a valid email address.");
         return;
@@ -251,50 +251,50 @@ subscribeBtn.addEventListener("click", function(){
    Preloader
 ========================== */
 
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
 
     const preloader =
-    document.getElementById("preloader");
+        document.getElementById("preloader");
 
-    setTimeout(function(){
+    setTimeout(function () {
 
         preloader.style.opacity = "0";
 
         preloader.style.transition =
-        "0.5s ease";
+            "0.5s ease";
 
-        setTimeout(function(){
+        setTimeout(function () {
 
             preloader.style.display = "none";
 
-        },500);
+        }, 500);
 
-    },2000); // 2 Seconds
+    }, 2000); // 2 Seconds
 
 });
 
 
 const pageLinks =
-document.querySelectorAll(".page-link");
+    document.querySelectorAll(".page-link");
 
 pageLinks.forEach(link => {
 
-    link.addEventListener("click", function(e){
+    link.addEventListener("click", function (e) {
 
         e.preventDefault();
 
         const url = this.href;
 
         const preloader =
-        document.getElementById("preloader");
+            document.getElementById("preloader");
 
         preloader.style.display = "flex";
 
-        setTimeout(function(){
+        setTimeout(function () {
 
             window.location.href = url;
 
-        },2000);
+        }, 2000);
 
     });
 
@@ -305,75 +305,75 @@ pageLinks.forEach(link => {
 ========================== */
 
 const contactForm =
-document.getElementById("contactForm");
+    document.getElementById("contactForm");
 
-if(contactForm){
+if (contactForm) {
 
-contactForm.addEventListener("submit", function(e){
+    contactForm.addEventListener("submit", function (e) {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const name =
-    contactForm.querySelector('[name="name"]').value.trim();
+        const name =
+            contactForm.querySelector('[name="name"]').value.trim();
 
-    const email =
-    contactForm.querySelector('[name="email"]').value.trim();
+        const email =
+            contactForm.querySelector('[name="email"]').value.trim();
 
-    const phone =
-    contactForm.querySelector('[name="phone"]').value.trim();
+        const phone =
+            contactForm.querySelector('[name="phone"]').value.trim();
 
-    const subject =
-    contactForm.querySelector('[name="subject"]').value.trim();
+        const subject =
+            contactForm.querySelector('[name="subject"]').value.trim();
 
-    const message =
-    contactForm.querySelector('[name="message"]').value.trim();
+        const message =
+            contactForm.querySelector('[name="message"]').value.trim();
 
-    const emailPattern =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const phonePattern =
-    /^[0-9]{10}$/;
+        const phonePattern =
+            /^[0-9]{10}$/;
 
-    if(name.length < 3){
+        if (name.length < 3) {
 
-        alert("Please enter a valid name.");
-        return;
+            alert("Please enter a valid name.");
+            return;
 
-    }
+        }
 
-    if(!emailPattern.test(email)){
+        if (!emailPattern.test(email)) {
 
-        alert("Please enter a valid email address.");
-        return;
+            alert("Please enter a valid email address.");
+            return;
 
-    }
+        }
 
-    if(!phonePattern.test(phone)){
+        if (!phonePattern.test(phone)) {
 
-        alert("Please enter a valid 10 digit mobile number.");
-        return;
+            alert("Please enter a valid 10 digit mobile number.");
+            return;
 
-    }
+        }
 
-    if(subject === ""){
+        if (subject === "") {
 
-        alert("Please enter subject.");
-        return;
+            alert("Please enter subject.");
+            return;
 
-    }
+        }
 
-    if(message.length < 10){
+        if (message.length < 10) {
 
-        alert("Message must contain at least 10 characters.");
-        return;
+            alert("Message must contain at least 10 characters.");
+            return;
 
-    }
+        }
 
-    alert("Message Sent Successfully!");
+        alert("Message Sent Successfully!");
 
-    contactForm.reset();
+        contactForm.reset();
 
-});
+    });
 
 }
 
@@ -385,12 +385,12 @@ contactForm.addEventListener("submit", function(e){
 
 const heroSlider = document.getElementById("heroSlider");
 
-if(heroSlider){
+if (heroSlider) {
 
-    function runHeroAnimation(){
+    function runHeroAnimation() {
 
         const firstSlide =
-        document.querySelector("#heroSlider .carousel-item:first-child");
+            document.querySelector("#heroSlider .carousel-item:first-child");
 
         firstSlide.classList.remove("run-animation");
 
@@ -401,27 +401,27 @@ if(heroSlider){
 
     // Page Load
 
-    window.addEventListener("load", function(){
+    window.addEventListener("load", function () {
 
-        setTimeout(function(){
+        setTimeout(function () {
 
             runHeroAnimation();
 
-        },2500);
+        }, 2500);
 
     });
 
     // Every Time Slide Changes
 
-    heroSlider.addEventListener("slid.bs.carousel", function(){
+    heroSlider.addEventListener("slid.bs.carousel", function () {
 
         const activeSlide =
-        document.querySelector("#heroSlider .carousel-item.active");
+            document.querySelector("#heroSlider .carousel-item.active");
 
         const firstSlide =
-        document.querySelector("#heroSlider .carousel-item:first-child");
+            document.querySelector("#heroSlider .carousel-item:first-child");
 
-        if(activeSlide === firstSlide){
+        if (activeSlide === firstSlide) {
 
             runHeroAnimation();
 
