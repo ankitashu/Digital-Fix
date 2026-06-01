@@ -430,3 +430,86 @@ if (heroSlider) {
     });
 
 }
+
+
+/* Auto Popup After 10 Seconds */
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+
+        document
+        .getElementById("bookingPopup")
+        .style.display = "flex";
+
+    },5000);
+
+});
+
+/* Close Popup */
+
+const closePopup =
+document.getElementById("closePopup");
+
+if(closePopup){
+
+closePopup.addEventListener("click",function(){
+
+    document
+    .getElementById("bookingPopup")
+    .style.display = "none";
+
+});
+
+}
+
+// popupForm.addEventListener("submit", function(e){
+
+//     e.preventDefault();
+
+//     window.location.href = "thankyou.html";
+
+// });
+
+const popupForm = document.getElementById("popupForm");
+
+if(popupForm){
+
+popupForm.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const name =
+    popupForm.querySelector('input[type="text"]').value.trim();
+
+    const phone =
+    popupForm.querySelector('input[type="tel"]').value.trim();
+
+    const service =
+    popupForm.querySelector('select').value;
+
+    const phonePattern = /^[0-9]{10}$/;
+
+    if(name.length < 3){
+
+        alert("Please enter valid name");
+        return;
+    }
+
+    if(!phonePattern.test(phone)){
+
+        alert("Please enter valid 10 digit mobile number");
+        return;
+    }
+
+    if(service === ""){
+
+        alert("Please select a service");
+        return;
+    }
+
+    window.location.href = "thankyou.html";
+
+});
+
+}
